@@ -1,0 +1,51 @@
+migration_loaders:
+  dlx.testing.event_store:
+    class: Daikon\Flysystem\Migration\FlysystemMigrationLoader
+    connector: dlx.testing.filesystem
+    settings:
+      location: migration://couchdb
+
+  dlx.testing.projection_store.standard:
+    class: Daikon\Flysystem\Migration\FlysystemMigrationLoader
+    connector: dlx.testing.filesystem
+    settings:
+      location: migration://elasticsearch
+
+  dlx.testing.message_queue:
+    class: Daikon\Flysystem\Migration\FlysystemMigrationLoader
+    connector: dlx.testing.filesystem
+    settings:
+      location: migration://rabbitmq
+
+migration_adapters:
+  dlx.testing.event_store:
+    class: Daikon\CouchDb\Migration\CouchDbMigrationAdapter
+    connector: dlx.testing.event_store
+
+  dlx.testing.projection_store.standard:
+    class: Daikon\Elasticsearch5\Migration\Elasticsearch5MigrationAdapter
+    connector: dlx.testing.projection_store.standard
+    settings:
+      type: dlx-testing-migration_list
+
+  dlx.testing.message_queue:
+    class: Daikon\RabbitMq3\Migration\RabbitMq3MigrationAdapter
+    connector: dlx.testing.message_queue.admin
+    settings:
+      exchange: dlx.testing.migration_list
+
+migration_targets:
+  dlx.testing.event_store:
+    enabled: true
+    migration_adapter: dlx.testing.event_store
+    migration_loader: dlx.testing.event_store
+
+  dlx.testing.projection_store.standard:
+    enabled: true
+    migration_adapter: dlx.testing.projection_store.standard
+    migration_loader: dlx.testing.projection_store.standard
+
+  dlx.testing.message_queue:
+    enabled: true
+    migration_adapter: dlx.testing.message_queue
+    migration_loader: dlx.testing.message_queue

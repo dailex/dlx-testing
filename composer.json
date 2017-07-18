@@ -1,0 +1,22 @@
+{
+    "name": "dailex/dlx-testing",
+    "type": "library",
+    "description": "Testing example crate for Honeylex.",
+    "license": "MPL-2.0",
+    "prefer-stable": true,
+    "minimum-stablity": "dev",
+    "require": {
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dlx\\Testing\\": "lib/"
+        }
+    },
+    "scripts": {
+        "code-sniffer": "phpcs --extensions=php --standard=psr2 lib",
+        "code-sniffer-autofix": "phpcbf --standard=psr2 -d tabWidth=4 src"
+    }
+}

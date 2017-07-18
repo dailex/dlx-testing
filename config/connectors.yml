@@ -1,0 +1,23 @@
+dlx.testing.event_store:
+  connector: dailex.event_store
+  settings:
+    database: ${project.prefix}%2Bdlx-testing
+
+dlx.testing.message_queue:
+  connector: dailex.message_queue
+
+dlx.testing.message_queue.admin:
+  connector: dailex.message_queue.admin
+
+dlx.testing.projection_store.standard:
+  connector: dailex.projection_store.standard
+  settings:
+    index: ${project.prefix}.dlx-testing
+
+dlx.testing.filesystem:
+  connector: dailex.filesystem
+  settings:
+    mounts:
+      migration:
+        adapter: League\Flysystem\Adapter\Local
+        location: ${app.base_dir}/vendor/dailex/dlx-testing/migration

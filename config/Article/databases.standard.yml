@@ -1,0 +1,16 @@
+storage_adapters:
+  dlx.testing.article.standard:
+    class: Daikon\Elasticsearch5\Storage\Elasticsearch5StorageAdapter
+    connector: dlx.testing.projection_store.standard
+    settings:
+      type: dlx-testing-article-standard
+
+projectors:
+  dlx.testing.article.standard:
+    class: Daikon\ReadModel\Projector\StandardProjector
+    repository: dlx.testing.article.standard
+
+repositories:
+   dlx.testing.article.standard:
+     class: Dlx\Testing\Article\Repository\Standard\ArticleRepository
+     storage_adapter: dlx.testing.article.standard
