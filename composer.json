@@ -4,8 +4,9 @@
     "description": "Testing example crate for Dailex.",
     "license": "MPL-2.0",
     "prefer-stable": true,
-    "minimum-stablity": "dev",
+    "minimum-stability": "dev",
     "require": {
+        "daikon/entity": "dev-master"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.3"
