@@ -35,11 +35,9 @@ final class Article implements AggregateRootInterface
 
     protected function whenArticleWasCreated(ArticleWasCreated $articleWasCreated)
     {
-        $this->articleState = (new ArticleEntityType)->makeEntity([
-            'identity' => $articleWasCreated->getAggregateId(),
-            'title' => $articleWasCreated->getTitle(),
-            'content' => $articleWasCreated->getContent()
-        ]);
+        $this->articleState = (new ArticleEntityType)->makeEntity()
+            ->withTitle($articleWasCreated->getTitle())
+            ->withContent($articleWasCreated->getContent());
     }
 
     protected function whenArticleWasUpdated(ArticleWasUpdated $articleWasUpdated)

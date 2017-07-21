@@ -7,7 +7,7 @@ storage_adapters:
 
 stream_stores:
   dlx.testing.article:
-    class: Daikon\CouchDb\Storage\CouchDbStreamStore
+    class: Daikon\CouchDb\Storage\CouchDbStreamStorage
     storage_adapter: dlx.testing.article
 
 units_of_work:

@@ -4,6 +4,7 @@ namespace Dlx\Testing\Article\Domain\Entity;
 
 use Daikon\Entity\Entity\Entity;
 use Daikon\Entity\ValueObject\Text;
+use Daikon\Entity\ValueObject\Uuid;
 use Daikon\Entity\ValueObject\ValueObjectInterface;
 use Daikon\EventSourcing\Aggregate\AggregateId;
 
@@ -14,7 +15,7 @@ class ArticleEntity extends Entity
         return $this->get("identity");
     }
 
-    public function withIdentity(AggregateId $aggregateId): self
+    public function withIdentity(Uuid $uuid): self
     {
         return $this->withValue("identity", $aggregateId);
     }

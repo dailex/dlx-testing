@@ -2,22 +2,20 @@
 
 namespace Dlx\Testing\Article\Domain\Entity;
 
+use Daikon\Entity\Entity\TypedEntityInterface;
 use Daikon\Entity\EntityType\Attribute;
 use Daikon\Entity\EntityType\EntityType;
-use Daikon\Entity\Entity\TypedEntityInterface;
 use Daikon\Entity\ValueObject\Text;
-use Daikon\EventSourcing\Aggregate\AggregateId;
-use Daikon\EventSourcing\Aggregate\AggregateRevision;
+use Daikon\Entity\ValueObject\Uuid;
 
 class ArticleEntityType extends EntityType
 {
     public function __construct()
     {
         parent::__construct("Article", [
-            Attribute::define("identity", AggregateId::class, $this),
-            Attribute::define("revision", AggregateRevision::class, $this),
+            Attribute::define("identity", Uuid::class, $this),
             Attribute::define("title", Text::class, $this),
-            Attribute::define("content", Text::class, $this),
+            Attribute::define("content", Text::class, $this)
         ]);
     }
 
