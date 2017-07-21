@@ -2,7 +2,7 @@
 
 namespace Dlx\Testing\Article\Handler;
 
-use Daikon\EventSourcing\Aggregate\CommandHandler;
+use Daikon\EventSourcing\Aggregate\Command\CommandHandler;
 use Daikon\MessageBus\Metadata\Metadata;
 use Dlx\Testing\Article\Domain\Command\UpdateArticle;
 

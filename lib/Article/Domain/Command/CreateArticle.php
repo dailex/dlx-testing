@@ -5,7 +5,7 @@ namespace Dlx\Testing\Article\Domain\Command;
 use Daikon\Entity\ValueObject\Text;
 use Daikon\EventSourcing\Aggregate\AggregateId;
 use Daikon\EventSourcing\Aggregate\AggregateIdInterface;
-use Daikon\EventSourcing\Aggregate\Command;
+use Daikon\EventSourcing\Aggregate\Command\Command;
 use Daikon\MessageBus\MessageInterface;
 use Dlx\Testing\Article\Domain\Article;
 
