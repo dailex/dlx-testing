@@ -15,9 +15,9 @@ class ArticleEntity extends Entity
         return $this->get("identity");
     }
 
-    public function withIdentity(Uuid $uuid): self
+    public function withIdentity(Uuid $identity): self
     {
-        return $this->withValue("identity", $aggregateId);
+        return $this->withValue("identity", $identity);
     }
 
     public function getTitle(): Text

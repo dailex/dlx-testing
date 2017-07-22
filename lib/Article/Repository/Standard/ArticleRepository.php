@@ -25,6 +25,11 @@ final class ArticleRepository implements RepositoryInterface
     {
     }
 
+    public function search($query, $from, $size): ProjectionMap
+    {
+        return $this->storageAdapter->search($query, $from, $size);
+    }
+
     public function persist(ProjectionInterface $projection): bool
     {
         return $this->storageAdapter->write($projection->getAggregateId(), $projection->toArray());

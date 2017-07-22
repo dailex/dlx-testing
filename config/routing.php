@@ -3,8 +3,8 @@
 use Dlx\Testing\Article\Controller\CollectionController;
 use Dlx\Testing\Article\Controller\ResourceController;
 
-$cratePrefix = 'dlx-testing';
-$mount = $configProvider->get('crates.'.$cratePrefix.'.mount');
+$cratePrefix = 'dlx.testing';
+$mount = $configProvider->get('crates.'.$cratePrefix.'.mount', '/dlx/testing');
 
 $app->mount($mount, function ($blog) use ($cratePrefix) {
     $blog->get('/articles', [CollectionController::class, 'write'])->bind($cratePrefix.'.articles');
