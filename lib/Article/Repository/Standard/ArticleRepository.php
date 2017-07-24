@@ -26,7 +26,7 @@ final class ArticleRepository implements RepositoryInterface
     {
     }
 
-    public function search(QueryInterface $query, $from, $size): ProjectionMap
+    public function search(QueryInterface $query, int $from = null, int $size = null): ProjectionMap
     {
         return $this->storageAdapter->search($query, $from, $size);
     }
