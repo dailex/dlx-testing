@@ -6,10 +6,7 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.1",
-        "daikon/entity": "master@dev",
-        "daikon/event-sourcing": "master@dev",
-        "daikon/message-bus": "master@dev"
+        "php": ">=7.1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.3"

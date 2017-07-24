@@ -2,10 +2,11 @@
 
 namespace Dlx\Testing\Article\Repository\Standard;
 
-use Daikon\Dbal\Storage\StorageAdapterInterface;
 use Daikon\ReadModel\Projection\ProjectionInterface;
 use Daikon\ReadModel\Projection\ProjectionMap;
+use Daikon\ReadModel\Query\QueryInterface;
 use Daikon\ReadModel\Repository\RepositoryInterface;
+use Daikon\ReadModel\Storage\StorageAdapterInterface;
 
 final class ArticleRepository implements RepositoryInterface
 {
@@ -25,7 +26,7 @@ final class ArticleRepository implements RepositoryInterface
     {
     }
 
-    public function search($query, $from, $size): ProjectionMap
+    public function search(QueryInterface $query, $from, $size): ProjectionMap
     {
         return $this->storageAdapter->search($query, $from, $size);
     }
