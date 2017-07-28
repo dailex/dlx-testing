@@ -10,9 +10,14 @@ use Daikon\Entity\ValueObject\Uuid;
 
 class ArticleEntityType extends EntityType
 {
+    public static function getName(): string
+    {
+        return "Article";
+    }
+
     public function __construct()
     {
-        parent::__construct("Article", [
+        parent::__construct([
             Attribute::define("identity", Uuid::class, $this),
             Attribute::define("title", Text::class, $this),
             Attribute::define("content", Text::class, $this)
@@ -23,6 +28,6 @@ class ArticleEntityType extends EntityType
     {
         $articleState["@type"] = $this;
         $articleState["@parent"] = $parent;
-        return ArticleEntity::fromArray($articleState);
+        return ArticleEntity::fromNative($articleState);
     }
 }
