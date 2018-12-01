@@ -30,7 +30,7 @@ class ResourceController
 
     public function write(Request $request, Application $app)
     {
-        $this->messageBus->publish(UpdateArticle::fromArray([
+        $this->messageBus->publish(UpdateArticle::fromNative([
             'aggregateId' => $request->attributes->get('articleId'),
             'title' => 'not the same',
             'content' => 'this looks like it updated'
