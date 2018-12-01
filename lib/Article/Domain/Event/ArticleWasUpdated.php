@@ -8,7 +8,6 @@ use Daikon\EventSourcing\Aggregate\AggregateRevision;
 use Daikon\EventSourcing\Aggregate\Event\DomainEvent;
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 use Daikon\MessageBus\MessageInterface;
-use Dlx\Testing\Article\Domain\Article;
 use Dlx\Testing\Article\Domain\Command\UpdateArticle;
 
 final class ArticleWasUpdated extends DomainEvent
@@ -17,12 +16,7 @@ final class ArticleWasUpdated extends DomainEvent
 
     private $content;
 
-    public static function getAggregateRootClass(): string
-    {
-        return Article::class;
-    }
-
-    public static function fromArray(array $nativeValues): MessageInterface
+    public static function fromNative(array $nativeValues): MessageInterface
     {
         return new self(
             AggregateId::fromNative($nativeValues['aggregateId']),

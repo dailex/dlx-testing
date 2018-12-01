@@ -1,0 +1,6 @@
+dailex:
+  command_router:
+    commands:
+      dlx.testing.article:
+        Dlx\Testing\Article\Domain\Command\CreateArticle: Dlx\Testing\Article\Handler\CreateArticleHandler
+        Dlx\Testing\Article\Domain\Command\UpdateArticle: Dlx\Testing\Article\Handler\UpdateArticleHandler

@@ -23,7 +23,7 @@ final class Article implements ProjectionInterface
 
     private function whenArticleWasCreated(ArticleWasCreated $articleWasCreated)
     {
-        return self::fromArray(array_merge(
+        return self::fromNative(array_merge(
             $this->state,
             [
                 'aggregateId' => $articleWasCreated->getAggregateId()->toNative(),
@@ -36,7 +36,7 @@ final class Article implements ProjectionInterface
 
     private function whenArticleWasUpdated(ArticleWasUpdated $articleWasUpdated)
     {
-        return self::fromArray(array_merge(
+        return self::fromNative(array_merge(
             $this->state,
             [
                 'aggregateRevision' => $articleWasUpdated->getAggregateRevision()->toNative(),

@@ -9,6 +9,9 @@ projectors:
   dlx.testing.article.standard:
     class: Daikon\ReadModel\Projector\StandardProjector
     repository: dlx.testing.article.standard
+    events:
+      - Dlx\Testing\Article\Domain\Event\ArticleWasCreated
+      - Dlx\Testing\Article\Domain\Event\ArticleWasUpdated
 
 repositories:
    dlx.testing.article.standard:

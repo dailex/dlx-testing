@@ -23,7 +23,7 @@ class CollectionController
 
     public function write(Request $request, Application $app)
     {
-        $this->messageBus->publish(CreateArticle::fromArray([
+        $this->messageBus->publish(CreateArticle::fromNative([
             'aggregateId' => 'dlx.testing.article-123',
             'title' => 'hello world!',
             'content' => 'using cqrs+es to just output this message is over engineered, but it worx :D'

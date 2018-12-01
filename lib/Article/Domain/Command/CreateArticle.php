@@ -7,7 +7,6 @@ use Daikon\EventSourcing\Aggregate\AggregateId;
 use Daikon\EventSourcing\Aggregate\AggregateIdInterface;
 use Daikon\EventSourcing\Aggregate\Command\Command;
 use Daikon\MessageBus\MessageInterface;
-use Dlx\Testing\Article\Domain\Article;
 
 final class CreateArticle extends Command
 {
@@ -15,12 +14,13 @@ final class CreateArticle extends Command
 
     private $content;
 
-    public static function fromArray(array $nativeValues): MessageInterface
+    /** @param array $payload */
+    public static function fromNative(array $payload): MessageInterface
     {
         return new self(
-            AggregateId::fromNative($nativeValues['aggregateId']),
-            Text::fromNative($nativeValues['title']),
-            Text::fromNative($nativeValues['content'])
+            AggregateId::fromNative($payload['aggregateId']),
+            Text::fromNative($payload['title']),
+            Text::fromNative($payload['content'])
         );
     }
 
@@ -34,17 +34,12 @@ final class CreateArticle extends Command
         return $this->content;
     }
 
-    public function toArray(): array
+    public function toNative(): array
     {
         return array_merge([
             'title' => $this->title->toNative(),
             'content' => $this->content->toNative()
-        ], parent::toArray());
-    }
-
-    public static function getAggregateRootClass(): string
-    {
-        return Article::class;
+        ], parent::toNative());
     }
 
     protected function __construct(AggregateIdInterface $aggregateId, Text $title, Text $content)

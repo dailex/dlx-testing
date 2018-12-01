@@ -2,7 +2,6 @@
 
 namespace Dlx\Testing\Article\Domain;
 
-use Daikon\EventSourcing\Aggregate\AggregateAlias;
 use Daikon\EventSourcing\Aggregate\AggregateRootInterface;
 use Daikon\EventSourcing\Aggregate\AggregateRootTrait;
 use Dlx\Testing\Article\Domain\Command\CreateArticle;
@@ -16,11 +15,6 @@ final class Article implements AggregateRootInterface
     use AggregateRootTrait;
 
     private $articleState;
-
-    public static function getAlias(): AggregateAlias
-    {
-        return AggregateAlias::fromNative('dlx.testing.article');
-    }
 
     public static function create(CreateArticle $createArticle): self
     {
